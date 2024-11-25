@@ -1,9 +1,28 @@
-# PDF SCAN MERGE
+# PDF  MERGE
 
-This script allows to combine into a single PDF document the result of the scan of a double sided document, when the
-scanner has not option to scan both faces.
+This script allows combining multiple PDF files into a single PDF document
 
-The user have to scan the odd pages, then the even pages into two separate batches, then combine both using this tool.
+There are two basic alternatives:
+
+### 1- Append merge (option -a)
+
+Files are simply append one after each others
+
+Usage:
+
+    pdf-merge -a file1.pdf file2.pdf file3.pdf
+
+or
+
+    pdf-merge -a file_pattern*.pdf
+
+### 2- Combined merge (two files only, option -c)
+
+Files are combined, each page of the second document is added after each corresponding page of the first one.
+
+This is essentially used to recombine into a single document the consecutive scans of all odd, then all even pages
+stored into two separate documents.
+This is the case when a scanner is not able to perform double-face scan operation.
 
 Of course, when the user starts scanning the even pages, he will scan the document by flipping the stack of pages,
 therefore the stack shows even pages in reverse order, from the last page to the first one.
@@ -12,7 +31,19 @@ This tool reverses by default the page order of the even-page document before me
 
 Usage:
 
-```
-pdf-merge odd-pages.pdf even-pages.pdf -o combined_doc.pdf [--no-reverse]
-```
+    pdf-merge -c odd-pages.pdf even-pages.pdf -o combined_doc.pdf [--no-reverse]
 
+### Additional options
+
+    --no-reverse
+
+This option, in conjunction with the `-c` option does not reverse the page of the even-pages documents
+
+    --encrypt, -e
+
+Encrypt the output document with the provided password
+Algorithm is `AES-256-R5`
+
+    --password, -p
+
+Provide an encryption password. If omitted when using the `-e` option, a password will be prompted
