@@ -9,7 +9,9 @@ log = logging.getLogger(__name__)
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("files", nargs='+', help="PDF files to merge")
+    parser.add_argument("files", nargs=2, help="the two (odd pages, even pages) PDF files to combine")
+    parser.add_argument("-o", "--output", help="output pdf file")
+    parser.add_argument("--no-reverse", help="do not reverse second document page order", action="store_true")
     args = parser.parse_args()
 
     # read PDF documents
@@ -26,7 +28,7 @@ def main():
 
     out = pypdf.PdfWriter()
 
-    pages = zip(inp1.pages, inp2.pages[::-1])
+    pages = zip(inp1.pages, inp2.pages if args.no_reverse else inp2.pages[::-1])
     for page in pages:
         out.add_page(page[0])
         out.add_page(page[1])

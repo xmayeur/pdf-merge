@@ -4,5 +4,5 @@
  pyinstaller -F \
  --noconfirm \
  --icon icon.png \
- pdf-zip.py
+ pdf-merge.py
 
