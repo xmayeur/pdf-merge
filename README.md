@@ -6,7 +6,7 @@ There are two basic alternatives:
 
 ### 1- Append merge (option -a)
 
-Files are simply append one after each others
+Files are simply appended one after each others.
 
 Usage:
 
