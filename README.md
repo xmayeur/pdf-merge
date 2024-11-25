@@ -31,7 +31,7 @@ This tool reverses by default the page order of the even-page document before me
 
 Usage:
 
-    pdf-merge -c odd-pages.pdf even-pages.pdf -o combined_doc.pdf [--no-reverse]
+    pdf-merge -c odd-pages.pdf even-pages.pdf -o combined_doc.pdf
 
 ### Additional options
 
@@ -39,11 +39,16 @@ Usage:
 
 This option, in conjunction with the `-c` option does not reverse the page of the even-pages documents
 
+---
     --encrypt, -e
 
-Encrypt the output document with the provided password
+Encrypt the output document with the provided password.
+
 Algorithm is `AES-256-R5`
 
+---
     --password, -p
 
 Provide an encryption password. If omitted when using the `-e` option, a password will be prompted
+
+---
