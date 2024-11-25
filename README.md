@@ -8,7 +8,6 @@ There are two basic alternatives:
 
 Files are simply appended one after each others.
 
-Usage:
 
     pdf-merge -a file1.pdf file2.pdf file3.pdf ... -o merged_doc.pdf
 
@@ -29,11 +28,29 @@ therefore the stack shows even pages in reverse order, from the last page to the
 
 This tool reverses by default the page order of the even-page document before merging.
 
-Usage:
 
     pdf-merge -c odd-pages.pdf even-pages.pdf -o combined_doc.pdf
 
-### Additional options
+### USAGE
+
+```
+usage: pdf-merge [-h] [-o OUTPUT] [--no-reverse] [-a] [-c] [-e] [-p PASSWORD] files [files ...]
+
+positional arguments:
+  files                 the two (odd pages, even pages) PDF files to combine
+
+options:
+  -h, --help            show this help message and exit
+  -o OUTPUT, --output OUTPUT
+                        output pdf file
+  --no-reverse          do not reverse second document page order
+  -a, --append          Just append files after each others
+  -c, --combined        Combined ood and even pages files
+  -e, --encrypt         Encrypt output file
+  -p PASSWORD, --password PASSWORD
+```
+
+---
 
     --no-reverse
 
