@@ -10,11 +10,11 @@ Files are simply appended one after each others.
 
 Usage:
 
-    pdf-merge -a file1.pdf file2.pdf file3.pdf
+    pdf-merge -a file1.pdf file2.pdf file3.pdf ... -o merged_doc.pdf
 
 or
 
-    pdf-merge -a file_pattern*.pdf
+    pdf-merge -a file_pattern*.pdf -o merged_doc.pdf
 
 ### 2- Combined merge (two files only, option -c)
 
